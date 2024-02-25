@@ -5,6 +5,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Avg, Min, Max, Count
 
+from job.filters import JobsFilter
+from rest_framework.pagination import PageNumberPagination
+
 from .serializers import JobSerializer
 from .models import Job
 
