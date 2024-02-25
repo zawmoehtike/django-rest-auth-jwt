@@ -43,7 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # zawmoehtike
-    'django.contrib.gis'
+    'rest_framework',
+    'corsheaders',
+    # 'storages'
+    'django.contrib.gis',
+    'django_filters',
+
+    'job.apps.JobConfig'
 ]
 
 MIDDLEWARE = [
