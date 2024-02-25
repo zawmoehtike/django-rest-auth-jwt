@@ -1,0 +1,19 @@
+
+> django-admin startproject project_name
+
+"zawmoehtike installed geos and gdal by brew"
+
+> brew install gdal
+> brew install geos
+
+"zawmoehtike make path to gdal and geos in .zshrc by using vim"
+
+export GDAL_LIBRARY_PATH=/usr/local/lib/libgdal.dylib 
+export GEOS_LIBRARY_PATH=/usr/local/lib/libgeos_c.dylib
+
+> python3 manage.py runserver
+
+> python3 manage.py startapp app_name
+
+> python3 manage.py makemigrations
+> python3 manage.py migrate
