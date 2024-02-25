@@ -17,3 +17,12 @@ export GEOS_LIBRARY_PATH=/usr/local/lib/libgeos_c.dylib
 
 > python3 manage.py makemigrations
 > python3 manage.py migrate
+
+"zawmoehtike configure .env file"
+
+> pip3 install python-dotenv
+> pip3 install "python-dotenv[cli]"
+
+> python3 manage.py createsuperuser
+
+"zawmoehtike set username and password as zawmoehtike and admin@123"
