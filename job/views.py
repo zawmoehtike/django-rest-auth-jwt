@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -14,10 +15,25 @@ from django.shortcuts import get_object_or_404
 @api_view(['GET'])
 def getAllJobs(request):
 
-    jobs = Job.objects.all()
+    filterset = JobsFilter(request.GET, queryset=Job.objects.all().order_by('id'))
 
-    serializer = JobSerializer(jobs, many=True)
-    return Response(serializer.data)
+    count = filterset.qs.count()
+
+    # Pagination
+    resPerPage = 3
+
+    paginator = PageNumberPagination()
+    paginator.page_size = resPerPage
+
+    queryset = paginator.paginate_queryset(filterset.qs, request)
+
+
+    serializer = JobSerializer(queryset, many=True)
+    return JsonResponse({
+        "count": count,
+        "resPerPage": resPerPage,
+        'jobs': serializer.data
+    }, safe = False)
 
 
 @api_view(['GET'])
