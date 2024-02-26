@@ -33,8 +33,119 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Zaw"
+						},
+						{
+							"key": "last_name",
+							"value": "Zaw"
+						},
+						{
+							"key": "email",
+							"value": "zawzaw@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "admin@123"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/register/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "zawzaw@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "admin@123"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/token/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/me/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"me",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -59,6 +170,16 @@
 		{
 			"key": "url",
 			"value": "localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwMjM5NDQ1LCJpYXQiOjE3MDg5NDM0NDUsImp0aSI6IjEyZDVhZjRhZjlmZjQ4ODliYzg3YzQ4MzVlY2RmZjBkIiwidXNlcl9pZCI6Mn0.Ox0dYVPxXsru0cY7VnzRsEuz_lVkYlVZ9Ox77-0juDs",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwOTAyOTg0NSwiaWF0IjoxNzA4OTQzNDQ1LCJqdGkiOiI1OTY1MGRjZDQ0MzI0M2I5ODQ3YmQwNGYzZjM5ZmE1MCIsInVzZXJfaWQiOjJ9.aIbv-rU4xRnF1L5bQwA7Rax-qHit2QRQ6JbXbSSySb4",
 			"type": "string"
 		}
 	]
